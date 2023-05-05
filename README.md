@@ -216,14 +216,15 @@ curl --location 'http://localhost:3000/api/addComment' \
 - Payload - In Query Params
 
 ```
-| Parameter        | Type  | Description|
+| Parameter   | Type  | Description|
 -----------------------------------------
-|post_id           |String | id of the Post
-|comment_id        |String| id of the Comment
+|post_id      |String | id of the Post
+|comment_id   |String| id of the Comment
 
+**NOTE** Either of these id values must be present. Both cannot be empty.
 ```
 
-- SAmple API Call
+- Sample API Call
 
 ```
 curl --location 'http://localhost:3000/api/getComments?post_id=20783694-598d-475d-8390-6da6f3e44390'
