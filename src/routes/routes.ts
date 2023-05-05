@@ -47,7 +47,6 @@ router.post(
 router.get("/getPosts", async (req: Request, res: Response) => {
   try {
     let result = await getPosts();
-    console.log(result);
     res.status(200).send(result);
   } catch (error) {
     console.error(error);
@@ -88,7 +87,6 @@ router.post(
         post_id: saveComment?.post_id || null,
         comment_id: saveComment?.id || null,
       };
-      console.log("This is the comment payload", getCommentDetail);
       let comments;
       if (getCommentDetail.post_id) {
         comments = await getCommentsData(getCommentDetail);
@@ -104,9 +102,8 @@ router.post(
   }
 );
 router.get("/getComments", async (req: Request, res: Response) => {
-  console.log(req.query);
   let { post_id, comment_id } = req.query;
-  console.log("The value of", req.query);
+
   if (!comment_id && !post_id) {
     return res.status(400).json({
       error:

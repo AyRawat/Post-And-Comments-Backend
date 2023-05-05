@@ -58,7 +58,6 @@ export const getCommentsData = async (data: IGetCommentDto) => {
     values = [comment_id];
   }
   return new Promise((resolve, reject) => {
-    console.log("The values being passed", values);
     db.pool.query(query, values, (err, result) => {
       if (err) {
         let message = {
@@ -68,7 +67,6 @@ export const getCommentsData = async (data: IGetCommentDto) => {
         reject(message);
       }
       let data = buildCommentTree(result?.rows);
-      console.log("The desired structure", data);
       resolve(data);
     });
   });

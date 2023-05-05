@@ -14,8 +14,6 @@ const dbHandler = async (
       if (err) {
         reject(new Error(err.message));
       }
-      // console.log("Successfully added the Post", result);
-      // return `Posts: ${result.rows}`;
       resolve(JSON.parse(JSON.stringify(result?.rows[0])));
     });
   });
@@ -29,7 +27,6 @@ export const addPost = async (
   const values: [string, string] = [title, description];
   try {
     let saved_post: IPostResultDto = await dbHandler(query, values);
-    console.log("The value of Saved Post", saved_post);
     return saved_post;
   } catch (error) {
     console.log("There is an error while saving to file", error);

@@ -15,8 +15,6 @@ const dbHandler = async (
       if (err) {
         reject(new Error(err.message));
       }
-      // console.log("Successfully added the Post", result);
-      // return `Posts: ${result.rows}`;
       resolve(JSON.parse(JSON.stringify(result?.rows[0])));
     });
   });
@@ -26,7 +24,6 @@ export const addComment = async (
   comment: ICommentDto
 ): Promise<ICommentResultDto | ICommentError> => {
   let { post_id, parent_comment_id, text } = comment;
-  console.log(comment);
   let query: string = "";
   let values: [string | null, string | null] = [null, null];
   if (post_id) {
@@ -39,7 +36,6 @@ export const addComment = async (
   }
   try {
     let savedComment: ICommentResultDto = await dbHandler(query, values);
-    console.log("The value of saved comment", savedComment);
     return savedComment;
   } catch (error) {
     console.log("Failed while saving the comment", error);
@@ -49,11 +45,4 @@ export const addComment = async (
     };
     return errorVal;
   }
-  //   db.pool.query(query, values, (err, result) => {
-  //     if (err) {
-  //       throw err;
-  //     }
-  //     console.log("Successfully added the Comment", result);
-  //     return `Posts: ${result?.rows[0]}`;
-  //   });
 };
