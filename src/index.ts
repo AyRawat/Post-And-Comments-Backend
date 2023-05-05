@@ -1,12 +1,13 @@
-import express, { Request, Response } from "express";
-import db from "db";
+import express from "express";
 import cors from "cors";
+import helmet from "helmet";
 import bodyParser from "body-parser";
 import { router } from "./routes/routes";
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
