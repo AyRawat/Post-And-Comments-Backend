@@ -178,7 +178,7 @@ curl --location 'http://localhost:3000/api/addPost' \
 -----------------------------------------
 |post_id           |String | id of the Post to comment
 |parent_comment_id |String | id of the Comment
-|text.             |String | Title of the card **Required
+|text              |String | Title of the card **Required
 
 **NOTE** either post_id or parent_comment_id is required. Both can't be empty
 ```
