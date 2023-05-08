@@ -141,7 +141,7 @@ curl --location 'http://localhost:3000/api/addPost' \
         "title": "Fourth Post",
         "description": "This is the Fourth Post's Description",
         "created_at": "2023-05-04T23:14:08.035Z",
-        "comments": "This is the 1st comment on 4th Post."
+        "comments": null
     },
     {
         "id": "78458d70-a7fc-4287-b0b3-fb659d5162e6",
